@@ -1,0 +1,82 @@
+/*DEVEN WEEDEN 2026*/
+#about{
+  padding-top:144px;
+  padding-bottom:48px;
+}
+
+#about .row{
+  display:grid;
+  grid-template-columns:1fr 2.1fr;
+  gap:44px;
+  align-items:start;
+}
+
+#about .photo{
+  --shift:112%;
+  transform:translateX(var(--shift));
+  transition:transform 400ms ease-out;
+}
+
+#about[data-revealed='true'] .photo{
+  transform:translateX(0);
+}
+
+#about img{
+  width:100%;
+  aspect-ratio:7 / 8;
+  border-radius:4px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 194, 80, 0.16), rgba(118, 137, 255, 0.16)),
+    var(--blobW);
+}
+
+#about .text{
+  opacity:0;
+  transform:translateX(28px);
+  transition:
+    opacity 400ms ease 100ms,
+    transform 400ms ease-out 100ms;
+}
+
+#about[data-revealed='true'] .text{
+  opacity:1;
+  transform:translateX(0);
+}
+
+#about p{
+  margin:0 0 1.15em;
+  max-width:62ch;
+  color:var(--text);
+  font-size:clamp(1.05rem, 1.35vw, 20px);
+  line-height:1.7;
+}
+
+#about p:last-child{
+  margin-bottom:0;
+}
+
+@media (max-width: 720px){
+  #about{
+    padding-top:96px;
+    padding-bottom:32px;
+  }
+
+  #about .row{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  #about .photo{
+    --shift:0px;
+    max-width:320px;
+  }
+
+  #about .text{
+    transform:translateY(24px);
+  }
+
+  #about[data-revealed='true'] .text{
+    transform:translateY(0);
+  }
+}
