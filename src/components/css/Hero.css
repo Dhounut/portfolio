@@ -1,0 +1,101 @@
+/*DEVEN WEEDEN 2026*/
+#hero{
+  min-height:100vh;
+  background: linear-gradient(to top, var(--heroB) 0%, var(--heroT) 100%);
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+#hero .container{
+  position: relative;
+  padding-block:96px;
+  flex:1;
+  z-index: 2;
+}
+
+#hero h1{
+  font-family:var(--mono);
+  font-weight:500;
+  font-size:clamp(2rem, 4.5vw, 64px);
+  line-height:1.1;
+  margin:0;
+  color:var(--secondary);
+  letter-spacing:-.02em;
+  transform:translateX(-0.08em);
+}
+
+#hero h1 span[data-typing='true'] {
+  animation:none
+}
+
+#hero h1 span{
+  display:inline-block;
+  width:.5em;
+  height:1em;
+  background-color:var(--blue);
+  transform:translateY(0.1em);
+  animation: name 1.00s steps(1, end) infinite;
+}
+
+@keyframes name{
+  0%, 49%{
+    opacity:1;
+  }
+  50%, 100%{
+    opacity:0;
+  }
+}
+
+#hero .intro{
+  max-width:46ch;
+  margin-top:24px;
+  animation:cue-in 600ms ease 1.6s backwards;
+}
+
+#hero .role{
+  margin:0;
+  font-family:var(--mono);
+  font-size:20px;
+  font-weight:500;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--orange);
+}
+
+#hero .cue{
+  position:absolute;
+  bottom:48px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;
+  padding:8px;
+  background:none;
+  border:none;
+  color:var(--secondary);
+  cursor:pointer;
+  animation:cue-in 600ms ease 1.6s both;
+}
+
+#hero .cue svg{
+  transition:opacity 400ms ease;
+}
+
+#hero .cue[data-hidden='true']{
+  pointer-events:none;
+}
+
+#hero .cue[data-hidden='true'] svg{
+  opacity:0;
+}
+
+@keyframes cue-in{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
